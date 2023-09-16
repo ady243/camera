@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Feed</title>
+</head>
+<body>
+    <video id="cameraFeed" autoplay></video>
+    <script>
+        const cameraFeed = document.getElementById("cameraFeed");
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                cameraFeed.srcObject = stream;
+            })
+            .catch(error => {
+                console.error("Oops, an error occurred:", error);
+            });
+    </script>
+</body>
+</html>
